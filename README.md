@@ -90,4 +90,4 @@ Aplikasi siap diakses melalui browser di `http://127.0.0.1:8000`.
 
 ---
 
-*Dikembangkan untuk Tugas Akhir Magang di Gamelab Indonesia.*
+*Dikembangkan oleh Muhammad Faqih untuk Tugas Akhir Magang di Gamelab Indonesia.*

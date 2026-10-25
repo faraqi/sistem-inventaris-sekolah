@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
     {
         // 1. Seed Users (1 Admin & 2 Users minimum)
         $admin = User::create([
-            'name' => 'Administrator Inventaris',
+            'name' => 'Muhammad Faqih (Admin)',
             'email' => 'admin@sekolah.sch.id',
             'password' => Hash::make('password'),
             'role' => 'admin',

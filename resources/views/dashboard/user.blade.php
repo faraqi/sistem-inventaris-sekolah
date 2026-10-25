@@ -2,7 +2,7 @@
     <!-- BEGIN: Refined Greeting Banner -->
     <section class="relative overflow-hidden rounded-2xl bg-white border border-slate-200/80 p-6 shadow-card" data-purpose="greeting-banner">
         <!-- Clean background accents -->
-        <div class="absolute top-0 right-0 -mt-6 -mr-6 w-80 h-80 bg-gradient-to-br from-indigo-50/70 via-slate-50/50 to-transparent rounded-full blur-2xl pointer-events-none"></div>
+        <div class="absolute top-0 right-0 -mt-6 -mr-6 w-80 h-80 bg-gradient-to-br from-pink-100/70 via-slate-50/50 to-transparent rounded-full blur-2xl pointer-events-none"></div>
         <div class="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
             <div>
                 <div class="flex flex-wrap items-center gap-2 mb-1.5">
@@ -28,7 +28,7 @@
                     </svg>
                     <span>Cek Tenggat Pinjaman</span>
                 </a>
-                <a href="{{ route('loans.create') }}" class="btn-shine inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-sm hover:shadow transition-all active:scale-[0.98]">
+                <a href="{{ route('loans.create') }}" class="btn-shine inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white text-xs font-semibold shadow-sm shadow-pink-500/20 hover:shadow transition-all active:scale-[0.98]">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <line x1="12" x2="12" y1="5" y2="19"></line>
                         <line x1="5" x2="19" y1="12" y2="12"></line>
@@ -61,7 +61,7 @@
                     <span class="text-xs text-slate-400 font-medium">peminjaman</span>
                 </div>
                 <div class="mt-1 flex items-center gap-1.5 text-xs text-slate-500">
-                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>
                     <span>Aktivitas semester ini</span>
                 </div>
             </div>
@@ -123,7 +123,7 @@
         <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-200 flex flex-col justify-between">
             <div class="flex items-center justify-between">
                 <span class="text-xs font-semibold text-slate-500 tracking-wide uppercase">Skor Kepatuhan</span>
-                <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100">
+                <div class="w-8 h-8 rounded-lg bg-pink-50 text-pink-600 flex items-center justify-center border border-pink-100">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                     </svg>
@@ -143,7 +143,7 @@
                     @endif
                 </div>
                 <div class="mt-2 w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-indigo-500 to-emerald-500 h-1.5 rounded-full" style="width: {{ $complianceScore }}%"></div>
+                    <div class="bg-gradient-to-r from-pink-500 to-rose-400 h-1.5 rounded-full" style="width: {{ $complianceScore }}%"></div>
                 </div>
             </div>
         </div>
@@ -167,7 +167,7 @@
                 </div>
             </div>
             <div class="flex items-center gap-2">
-                <a class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-indigo-600 px-3 py-1.5 rounded-lg hover:bg-slate-100/80 transition-colors" href="{{ route('loans.index') }}">
+                <a class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-pink-600 px-3 py-1.5 rounded-lg hover:bg-slate-100/80 transition-colors" href="{{ route('loans.index') }}">
                     <span>Lihat Semua Riwayat ({{ $myTotalLoans }})</span>
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M5 12h14"></path>
@@ -199,7 +199,7 @@
                         <tr class="{{ $isOverdue ? 'hover:bg-rose-50/20' : 'hover:bg-slate-50/60' }} transition-colors group">
                             <td class="py-4 px-6">
                                 <div class="flex items-center gap-3.5">
-                                    <div class="w-10 h-10 rounded-xl {{ $isOverdue ? 'bg-orange-50 border border-orange-200/70 text-orange-600' : 'bg-indigo-50 border border-indigo-200/70 text-indigo-600' }} flex items-center justify-center shrink-0">
+                                    <div class="w-10 h-10 rounded-xl {{ $isOverdue ? 'bg-orange-50 border border-orange-200/70 text-orange-600' : 'bg-pink-50 border border-pink-200/70 text-pink-600' }} flex items-center justify-center shrink-0">
                                         @if(str_contains($catName, 'olahraga'))
                                             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                                                 <circle cx="12" cy="12" r="9"></circle>
@@ -223,7 +223,7 @@
                                         @endif
                                     </div>
                                     <div>
-                                        <span class="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors block text-xs sm:text-sm">
+                                        <span class="font-bold text-slate-900 group-hover:text-pink-600 transition-colors block text-xs sm:text-sm">
                                             {{ $loan->item->name ?? '-' }}
                                         </span>
                                         <span class="font-mono text-[11px] text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200/60 inline-block mt-0.5">
@@ -251,7 +251,7 @@
                                     <div class="text-[11px] text-rose-600/90 font-medium">Lewat tempo {{ $daysDiff }} hari</div>
                                 @else
                                     <div class="font-bold text-slate-800 flex items-center gap-1.5">
-                                        <svg class="w-3.5 h-3.5 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <svg class="w-3.5 h-3.5 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                             <circle cx="12" cy="12" r="10"></circle>
                                             <polyline points="12 6 12 12 16 14"></polyline>
                                         </svg>
@@ -278,7 +278,7 @@
                                     <a href="{{ route('loans.show', $loan) }}" class="px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors">
                                         Detail
                                     </a>
-                                    <a href="{{ route('loans.show', $loan) }}" class="px-3 py-1.5 text-xs font-semibold {{ $isOverdue ? 'text-rose-700 hover:bg-rose-700 hover:text-white bg-rose-50 border border-rose-200/90' : 'text-indigo-700 hover:bg-indigo-50 border border-indigo-200' }} rounded-lg transition-all">
+                                    <a href="{{ route('loans.show', $loan) }}" class="px-3 py-1.5 text-xs font-semibold {{ $isOverdue ? 'text-rose-700 hover:bg-rose-700 hover:text-white bg-rose-50 border border-rose-200/90' : 'text-pink-700 hover:bg-pink-50 border border-pink-200' }} rounded-lg transition-all">
                                         {{ $isOverdue ? 'Kembalikan Sekarang' : 'Perpanjang / Selesai' }}
                                     </a>
                                 </div>
@@ -303,7 +303,7 @@
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
                 <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
+                    <span class="w-2 h-2 rounded-full bg-pink-500"></span>
                     <h2 class="text-base sm:text-lg font-bold tracking-tight text-slate-900">Katalog Sarana & Fasilitas Tersedia</h2>
                 </div>
                 <p class="text-xs text-slate-500 mt-0.5">Pilih inventaris praktik kejuruan atau ekstrakurikuler yang siap dipinjam</p>
@@ -316,7 +316,7 @@
                         <line x1="21" x2="16.65" y1="21" y2="16.65"></line>
                     </svg>
                 </span>
-                <input class="w-full pl-9 pr-14 py-2 text-xs bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all shadow-subtle placeholder:text-slate-400" name="search" value="{{ request('search') }}" placeholder="Cari proyektor, laptop, kamera..." type="text"/>
+                <input class="w-full pl-9 pr-14 py-2 text-xs bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-400 focus:border-pink-400 transition-all shadow-subtle placeholder:text-slate-400" name="search" value="{{ request('search') }}" placeholder="Cari proyektor, laptop, kamera..." type="text"/>
                 <span class="absolute inset-y-0 right-0 flex items-center pr-2.5 pointer-events-none">
                     <kbd class="text-[10px] font-mono font-medium text-slate-400 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded shadow-xs">⌘K</kbd>
                 </span>
@@ -388,15 +388,15 @@
                     <div class="p-5">
                         <!-- Top Badges -->
                         <div class="flex items-center justify-between gap-2 mb-3">
-                            <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold {{ $isAudio ? 'bg-indigo-50 text-indigo-700 border border-indigo-100' : ($isIT ? 'bg-sky-50 text-sky-700 border border-sky-100' : ($isSports ? 'bg-amber-50 text-amber-700 border border-amber-100' : ($isLab ? 'bg-emerald-50 text-emerald-700 border border-emerald-100' : 'bg-slate-100 text-slate-700 border border-slate-200'))) }}">
+                            <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold {{ $isAudio ? 'bg-pink-50 text-pink-700 border border-pink-100' : ($isIT ? 'bg-sky-50 text-sky-700 border border-sky-100' : ($isSports ? 'bg-amber-50 text-amber-700 border border-amber-100' : ($isLab ? 'bg-emerald-50 text-emerald-700 border border-emerald-100' : 'bg-slate-100 text-slate-700 border border-slate-200'))) }}">
                                 {{ $item->category->name ?? 'Umum' }}
                             </span>
                             <span class="font-mono text-[10px] text-slate-400">{{ $item->code }}</span>
                         </div>
 
                         <!-- Vector Graphic Box matching Contoh dashboard.html -->
-                        <div class="w-full h-32 rounded-xl {{ $isAudio ? 'bg-gradient-to-b from-indigo-50/50 to-slate-50/80 hover:border-indigo-200' : ($isIT ? 'bg-gradient-to-b from-sky-50/50 to-slate-50/80 hover:border-sky-200' : ($isSports ? 'bg-gradient-to-b from-amber-50/50 to-slate-50/80 hover:border-amber-200' : 'bg-gradient-to-b from-emerald-50/50 to-slate-50/80 hover:border-emerald-200')) }} border border-slate-100 flex flex-col items-center justify-center relative overflow-hidden transition-colors">
-                            <div class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200/60 flex items-center justify-center {{ $isAudio ? 'text-indigo-600' : ($isIT ? 'text-sky-600' : ($isSports ? 'text-amber-600' : 'text-emerald-600')) }} group-hover:scale-105 transition-transform">
+                        <div class="w-full h-32 rounded-xl {{ $isAudio ? 'bg-gradient-to-b from-pink-50/50 to-slate-50/80 hover:border-pink-200' : ($isIT ? 'bg-gradient-to-b from-sky-50/50 to-slate-50/80 hover:border-sky-200' : ($isSports ? 'bg-gradient-to-b from-amber-50/50 to-slate-50/80 hover:border-amber-200' : 'bg-gradient-to-b from-emerald-50/50 to-slate-50/80 hover:border-emerald-200')) }} border border-slate-100 flex flex-col items-center justify-center relative overflow-hidden transition-colors">
+                            <div class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200/60 flex items-center justify-center {{ $isAudio ? 'text-pink-600' : ($isIT ? 'text-sky-600' : ($isSports ? 'text-amber-600' : 'text-emerald-600')) }} group-hover:scale-105 transition-transform">
                                 @if($isAudio)
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                                         <rect height="10" rx="2" width="20" x="2" y="6"></rect>
@@ -436,7 +436,7 @@
 
                         <!-- Title & Stock -->
                         <div class="mt-4">
-                            <h3 class="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors text-sm">
+                            <h3 class="font-bold text-slate-900 group-hover:text-pink-600 transition-colors text-sm">
                                 {{ $item->name }}
                             </h3>
                             <p class="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
@@ -452,7 +452,7 @@
                         <span class="text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200/60">
                             {{ $item->condition === 'baik' ? 'Kondisi Prima' : strtoupper($item->condition) }}
                         </span>
-                        <a href="{{ route('loans.create', ['item_id' => $item->id]) }}" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-indigo-600 text-white text-xs font-semibold transition-all">
+                        <a href="{{ route('loans.create', ['item_id' => $item->id]) }}" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-pink-600 text-white text-xs font-semibold transition-all">
                             <span>Pinjam</span>
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                 <path d="m9 18 6-6-6-6"></path>

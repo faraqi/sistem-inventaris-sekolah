@@ -43,7 +43,7 @@
                 @endif
                 <li>
                     @if($crumb[1] && ! $loop->last)
-                        <a href="{{ route($crumb[1]) }}" class="font-medium hover:text-indigo-600 transition-colors">{{ $crumb[0] }}</a>
+                        <a href="{{ route($crumb[1]) }}" class="font-medium hover:text-pink-600 transition-colors">{{ $crumb[0] }}</a>
                     @else
                         <span aria-current="page" class="font-semibold text-slate-800">{{ $crumb[0] }}</span>
                     @endif

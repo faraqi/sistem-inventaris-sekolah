@@ -4,7 +4,7 @@
             <h2 class="font-bold text-xl text-gray-800 leading-tight">
                 Detail Barang: {{ $item->name }}
             </h2>
-            <a href="{{ route('items.index') }}" class="text-sm text-gray-600 hover:text-gray-900 font-medium">&larr; Kembali ke Katalog</a>
+            <a href="{{ route('items.index') }}" class="text-sm text-gray-600 hover:text-pink-600 font-medium transition">&larr; Kembali ke Katalog</a>
         </div>
     </x-slot>
 
@@ -13,7 +13,7 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-gray-100 gap-4">
                 <div>
-                    <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold uppercase">
+                    <span class="bg-pink-50 text-pink-700 border border-pink-100 px-3 py-1 rounded-full text-xs font-bold uppercase">
                         {{ $item->category->name ?? 'Umum' }}
                     </span>
                     <h1 class="text-2xl font-extrabold text-gray-900 mt-2">{{ $item->name }}</h1>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="flex items-center space-x-3">
                     @if($item->stock > 0)
-                        <a href="{{ route('loans.create', ['item_id' => $item->id]) }}" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-4 py-2 rounded-lg shadow transition">
+                        <a href="{{ route('loans.create', ['item_id' => $item->id]) }}" class="bg-pink-500 hover:bg-pink-600 text-white font-bold text-sm px-4 py-2 rounded-lg shadow-md shadow-pink-200 transition">
                             + Pinjam Barang Ini
                         </a>
                     @endif
@@ -37,7 +37,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
                 <div class="bg-gray-50 rounded-lg p-4 text-center">
                     <p class="text-xs text-gray-400 font-bold uppercase">Stok Tersedia</p>
-                    <p class="text-3xl font-extrabold text-indigo-600 mt-1">{{ number_format($item->stock, 0, ',', '.') }}</p>
+                    <p class="text-3xl font-extrabold text-pink-600 mt-1">{{ number_format($item->stock, 0, ',', '.') }}</p>
                 </div>
                 <div class="bg-gray-50 rounded-lg p-4 text-center">
                     <p class="text-xs text-gray-400 font-bold uppercase">Kondisi Barang</p>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-[#f8fafc] antialiased">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-[#fff5f7] antialiased">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
     <!-- Tailwind CSS CDN with forms and container queries plugins -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
-    <!-- Tailwind Configuration matching Contoh dashboard.html -->
+    <!-- Tailwind Configuration with Soft Pink Aesthetics -->
     <script>
         tailwind.config = {
           theme: {
@@ -26,27 +26,54 @@
               },
               colors: {
                 slate: {
-                  850: '#151f32',
-                  900: '#0f172a',
-                  950: '#090d16',
+                  850: '#1e131d',
+                  900: '#160c15',
+                  950: '#0e060d',
                 },
                 primary: {
-                  50: '#eef2ff',
-                  100: '#e0e7ff',
-                  200: '#c7d2fe',
-                  500: '#6366f1',
-                  600: '#4f46e5',
-                  700: '#4338ca',
-                  800: '#3730a3',
-                  900: '#312e81',
+                  50: '#fff1f5',
+                  100: '#ffe4ec',
+                  200: '#fecdd9',
+                  300: '#fda4be',
+                  400: '#fb7199',
+                  500: '#ec4899',
+                  600: '#db2777',
+                  700: '#be185d',
+                  800: '#9d174d',
+                  900: '#831843',
+                },
+                // Aliasing indigo to soft pink so all existing components render in soft pink seamlessly
+                indigo: {
+                  50: '#fff1f5',
+                  100: '#ffe4ec',
+                  200: '#fecdd9',
+                  300: '#fda4be',
+                  400: '#fb7199',
+                  500: '#ec4899',
+                  600: '#db2777',
+                  700: '#be185d',
+                  800: '#9d174d',
+                  900: '#831843',
+                },
+                pink: {
+                  50: '#fff1f5',
+                  100: '#ffe4ec',
+                  200: '#fecdd9',
+                  300: '#fda4be',
+                  400: '#fb7199',
+                  500: '#ec4899',
+                  600: '#db2777',
+                  700: '#be185d',
+                  800: '#9d174d',
+                  900: '#831843',
                 }
               },
               boxShadow: {
-                'subtle': '0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 3px 0 rgba(0, 0, 0, 0.04)',
-                'card': '0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 4px 12px -2px rgba(15, 23, 42, 0.03)',
-                'card-hover': '0 10px 25px -4px rgba(15, 23, 42, 0.06), 0 4px 10px -2px rgba(15, 23, 42, 0.03)',
-                'float': '0 20px 35px -8px rgba(15, 23, 42, 0.08), 0 8px 16px -4px rgba(15, 23, 42, 0.03)',
-                'glow-primary': '0 0 24px -4px rgba(79, 70, 229, 0.28)',
+                'subtle': '0 1px 2px 0 rgba(236, 72, 153, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.04)',
+                'card': '0 1px 3px 0 rgba(190, 24, 93, 0.04), 0 4px 12px -2px rgba(190, 24, 93, 0.03)',
+                'card-hover': '0 10px 25px -4px rgba(190, 24, 93, 0.08), 0 4px 10px -2px rgba(190, 24, 93, 0.04)',
+                'float': '0 20px 35px -8px rgba(190, 24, 93, 0.1), 0 8px 16px -4px rgba(190, 24, 93, 0.04)',
+                'glow-primary': '0 0 24px -4px rgba(236, 72, 153, 0.35)',
               }
             }
           }
@@ -55,7 +82,7 @@
 
     <style>
         .bg-grid-pattern {
-            background-image: radial-gradient(rgba(148, 163, 184, 0.18) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(244, 114, 182, 0.22) 1px, transparent 1px);
             background-size: 24px 24px;
         }
         .btn-shine {
@@ -86,7 +113,7 @@
     <!-- Alpine JS via Breeze -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="min-h-screen bg-[#f8fafc] text-slate-800 antialiased flex flex-col font-sans selection:bg-indigo-500 selection:text-white bg-grid-pattern">
+<body class="min-h-screen bg-[#fff5f7] text-slate-800 antialiased flex flex-col font-sans selection:bg-pink-400 selection:text-white bg-grid-pattern">
 
     @include('layouts.navigation')
 
@@ -121,7 +148,7 @@
     <!-- Page Header Slot -->
     @isset($header)
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-4">
-            <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 [&>div]:flex-wrap [&>div]:gap-3">
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-pink-100/80 [&>div]:flex-wrap [&>div]:gap-3">
                 {{ $header }}
             </div>
         </div>
@@ -133,24 +160,26 @@
     </main>
 
     <!-- Footer matching Contoh dashboard.html -->
-    <footer class="mt-auto border-t border-slate-200/80 bg-white/70 backdrop-blur-md py-6 mb-16 md:mb-0">
+    <footer class="mt-auto border-t border-pink-200/60 bg-white/80 backdrop-blur-md py-6 mb-16 md:mb-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
             <div class="flex flex-wrap items-center gap-2 text-center md:text-left">
                 <span class="font-bold text-slate-800 tracking-tight">SISTEM INVENTARIS SEKOLAH</span>
-                <span class="text-slate-300">•</span>
+                <span class="text-pink-300">•</span>
                 <span>SMKN 1 KETAPANG © {{ date('Y') }}</span>
-                <span class="text-slate-300 hidden sm:inline">•</span>
+                <span class="text-pink-300 hidden sm:inline">•</span>
                 <span class="text-slate-400 hidden sm:inline">Jam Operasional: 07.00 - 16.00 WIB</span>
             </div>
             <div class="flex items-center gap-5">
-                <div class="flex items-center gap-1.5 font-medium text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/70">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <div class="flex items-center gap-1.5 font-medium text-pink-700 bg-pink-50 px-2.5 py-1 rounded-full border border-pink-200/70">
+                    <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>
                     <span>Sistem Sinkron</span>
                 </div>
             </div>
         </div>
+    </footer>
+
     <!-- Top Progress Bar for Instant Page Navigation Feedback -->
-    <div id="instant-progress" class="fixed top-0 left-0 right-0 z-50 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-500 opacity-0 transition-opacity duration-200 pointer-events-none">
+    <div id="instant-progress" class="fixed top-0 left-0 right-0 z-50 h-1 bg-gradient-to-r from-pink-400 via-rose-400 to-pink-500 opacity-0 transition-opacity duration-200 pointer-events-none">
         <div class="h-full bg-white/40 w-full animate-pulse"></div>
     </div>
 

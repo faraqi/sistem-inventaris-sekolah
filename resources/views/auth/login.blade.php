@@ -8,13 +8,13 @@
     </div>
 
     <!-- Quick Demo Credential Autofill Buttons -->
-    <div class="mb-6 p-3 bg-indigo-50 border border-indigo-100 rounded-lg text-xs space-y-2">
-        <p class="font-bold text-indigo-900">Uji Coba Cepat (Click to Autofill):</p>
+    <div class="mb-6 p-3 bg-pink-50 border border-pink-100 rounded-lg text-xs space-y-2">
+        <p class="font-bold text-pink-900">Uji Coba Cepat (Click to Autofill):</p>
         <div class="grid grid-cols-2 gap-2">
             <button type="button" onclick="document.getElementById('email').value='admin@sekolah.sch.id'; document.getElementById('password').value='password';" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-1.5 px-2 rounded text-[11px] shadow-sm">
                 As Admin
             </button>
-            <button type="button" onclick="document.getElementById('email').value='siswa@sekolah.sch.id'; document.getElementById('password').value='password';" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-1.5 px-2 rounded text-[11px] shadow-sm">
+            <button type="button" onclick="document.getElementById('email').value='siswa@sekolah.sch.id'; document.getElementById('password').value='password';" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-1.5 px-2 rounded text-[11px] shadow-sm">
                 As User (Siswa)
             </button>
         </div>
@@ -46,17 +46,17 @@
         <!-- Remember Me -->
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-pink-600 shadow-sm focus:ring-pink-400" name="remember">
                 <span class="ms-2 text-sm text-gray-600">Ingat Saya</span>
             </label>
         </div>
 
         <div class="flex items-center justify-between mt-4">
-            <a class="underline text-xs text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
+            <a class="underline text-xs text-gray-600 hover:text-pink-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-400" href="{{ route('register') }}">
                 Belum punya akun? Daftar
             </a>
 
-            <x-primary-button class="ms-3 bg-indigo-600 hover:bg-indigo-700">
+            <x-primary-button class="ms-3 bg-pink-500 hover:bg-pink-600 shadow-pink-200">
                 Masuk System
             </x-primary-button>
         </div>

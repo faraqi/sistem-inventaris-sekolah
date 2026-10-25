@@ -4,7 +4,7 @@
             <h2 class="font-bold text-xl text-gray-800 leading-tight">
                 Verifikasi & Catat Pengembalian Barang
             </h2>
-            <a href="{{ route('returns.index') }}" class="text-sm text-gray-600 hover:text-pink-600 font-medium transition">&larr; Kembali ke Riwayat Pengembalian</a>
+            <a href="{{ route('returns.index') }}" class="text-sm text-gray-600 hover:text-orange-600 font-medium transition">&larr; Kembali ke Riwayat Pengembalian</a>
         </div>
     </x-slot>
 
@@ -18,7 +18,7 @@
                     <label for="loan_id" class="block text-sm font-semibold text-gray-700 mb-1">
                         Pilih Transaksi Peminjaman <span class="text-rose-500">*</span>
                     </label>
-                    <select name="loan_id" id="loan_id" autofocus required class="w-full rounded-lg border-gray-300 shadow-sm focus:border-pink-400 focus:ring-pink-300 text-sm">
+                    <select name="loan_id" id="loan_id" autofocus required class="w-full rounded-lg border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-300 text-sm">
                         <option value="">-- Pilih Peminjaman yang Aktif --</option>
                         @foreach($activeLoans as $loan)
                             <option value="{{ $loan->id }}" {{ old('loan_id', $selectedLoan?->id) == $loan->id ? 'selected' : '' }}>
@@ -36,7 +36,7 @@
                     <label for="returned_at" class="block text-sm font-semibold text-gray-700 mb-1">
                         Tanggal Dikembalikan <span class="text-rose-500">*</span>
                     </label>
-                    <input type="date" name="returned_at" id="returned_at" value="{{ old('returned_at', date('Y-m-d')) }}" required class="w-full rounded-lg border-gray-300 shadow-sm focus:border-pink-400 focus:ring-pink-300 text-sm">
+                    <input type="date" name="returned_at" id="returned_at" value="{{ old('returned_at', date('Y-m-d')) }}" required class="w-full rounded-lg border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-300 text-sm">
                     @error('returned_at')
                         <p class="text-rose-500 text-xs mt-1 font-medium">{{ $message }}</p>
                     @enderror
@@ -47,7 +47,7 @@
                     <label for="condition_on_return" class="block text-sm font-semibold text-gray-700 mb-1">
                         Kondisi Barang Saat Dikembalikan <span class="text-rose-500">*</span>
                     </label>
-                    <select name="condition_on_return" id="condition_on_return" required class="w-full rounded-lg border-gray-300 shadow-sm focus:border-pink-400 focus:ring-pink-300 text-sm">
+                    <select name="condition_on_return" id="condition_on_return" required class="w-full rounded-lg border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-300 text-sm">
                         <option value="baik" {{ old('condition_on_return') === 'baik' ? 'selected' : '' }}>Baik (Lengkap & Berfungsi)</option>
                         <option value="rusak ringan" {{ old('condition_on_return') === 'rusak ringan' ? 'selected' : '' }}>Rusak Ringan (Ada lecet / kelengkapan berkurang)</option>
                         <option value="rusak berat" {{ old('condition_on_return') === 'rusak berat' ? 'selected' : '' }}>Rusak Berat / Perlu Perbaikan</option>
@@ -62,7 +62,7 @@
                     <label for="notes" class="block text-sm font-semibold text-gray-700 mb-1">
                         Catatan Tambahan dari Admin
                     </label>
-                    <textarea name="notes" id="notes" rows="3" placeholder="Masukkan catatan kondisi fisik, kelengkapan aksesoris, atau kelambatan pengembalian..." class="w-full rounded-lg border-gray-300 shadow-sm focus:border-pink-400 focus:ring-pink-300 text-sm">{{ old('notes') }}</textarea>
+                    <textarea name="notes" id="notes" rows="3" placeholder="Masukkan catatan kondisi fisik, kelengkapan aksesoris, atau kelambatan pengembalian..." class="w-full rounded-lg border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-300 text-sm">{{ old('notes') }}</textarea>
                     @error('notes')
                         <p class="text-rose-500 text-xs mt-1 font-medium">{{ $message }}</p>
                     @enderror
@@ -70,7 +70,7 @@
 
                 <div class="flex items-center justify-end space-x-3 pt-4 border-t border-gray-100">
                     <a href="{{ route('returns.index') }}" class="px-4 py-2 border border-gray-300 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-50">Batal</a>
-                    <button type="submit" class="px-5 py-2 bg-pink-500 hover:bg-pink-600 text-white font-bold text-sm rounded-lg shadow-md shadow-pink-200 transition">Verifikasi & Simpan Pengembalian</button>
+                    <button type="submit" class="px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm rounded-lg shadow-md shadow-orange-200 transition">Verifikasi & Simpan Pengembalian</button>
                 </div>
             </form>
         </div>

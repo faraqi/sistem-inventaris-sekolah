@@ -9,7 +9,7 @@
                 <p class="text-xs text-slate-500 mt-0.5">Kelola seluruh daftar aset dan barang inventaris sekolah.</p>
             </div>
             @if(Auth::user()->isAdmin())
-                <a href="{{ route('items.create') }}" class="inline-flex items-center justify-center gap-2 bg-pink-500 hover:bg-pink-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-md shadow-pink-200 transition">
+                <a href="{{ route('items.create') }}" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-md shadow-orange-200 transition">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                     </svg>
@@ -30,12 +30,12 @@
             <form method="GET" action="{{ route('items.index') }}" class="grid grid-cols-1 md:grid-cols-4 gap-3">
                 <!-- Search Input -->
                 <div class="md:col-span-1">
-                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama / kode barang..." class="w-full rounded-lg border-gray-300 text-sm focus:border-pink-400 focus:ring-pink-300">
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama / kode barang..." class="w-full rounded-lg border-gray-300 text-sm focus:border-orange-400 focus:ring-orange-300">
                 </div>
 
                 <!-- Category Filter -->
                 <div>
-                    <select name="category_id" class="w-full rounded-lg border-gray-300 text-sm focus:border-pink-400 focus:ring-pink-300">
+                    <select name="category_id" class="w-full rounded-lg border-gray-300 text-sm focus:border-orange-400 focus:ring-orange-300">
                         <option value="">-- Semua Kategori --</option>
                         @foreach($categories as $cat)
                             <option value="{{ $cat->id }}" {{ request('category_id') == $cat->id ? 'selected' : '' }}>
@@ -47,7 +47,7 @@
 
                 <!-- Condition Filter -->
                 <div>
-                    <select name="condition" class="w-full rounded-lg border-gray-300 text-sm focus:border-pink-400 focus:ring-pink-300">
+                    <select name="condition" class="w-full rounded-lg border-gray-300 text-sm focus:border-orange-400 focus:ring-orange-300">
                         <option value="">-- Semua Kondisi --</option>
                         <option value="baik" {{ request('condition') == 'baik' ? 'selected' : '' }}>Baik</option>
                         <option value="rusak ringan" {{ request('condition') == 'rusak ringan' ? 'selected' : '' }}>Rusak Ringan</option>
@@ -57,7 +57,7 @@
 
                 <!-- Action Buttons -->
                 <div class="flex items-center space-x-2">
-                    <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold text-sm py-2 rounded-lg shadow-sm shadow-pink-200 transition">
+                    <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm py-2 rounded-lg shadow-sm shadow-orange-200 transition">
                         Filter Data
                     </button>
                     @if(request('search') || request('category_id') || request('condition') || request('trashed'))
@@ -68,7 +68,7 @@
 
             @if(Auth::user()->isAdmin())
                 <div class="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
-                    <a href="{{ route('items.index', array_merge(request()->all(), ['trashed' => request('trashed') ? 0 : 1])) }}" class="text-pink-600 hover:underline font-semibold flex items-center gap-1">
+                    <a href="{{ route('items.index', array_merge(request()->all(), ['trashed' => request('trashed') ? 0 : 1])) }}" class="text-orange-600 hover:underline font-semibold flex items-center gap-1">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
@@ -96,16 +96,16 @@
                 <tbody class="divide-y divide-gray-100">
                     @forelse($items as $item)
                         <tr class="hover:bg-gray-50">
-                            <td class="px-6 py-4 font-mono font-bold text-xs text-pink-600">
+                            <td class="px-6 py-4 font-mono font-bold text-xs text-orange-600">
                                 {{ $item->code }}
                             </td>
                             <td class="px-6 py-4 font-bold text-gray-900">
-                                <a href="{{ route('items.show', $item) }}" class="hover:text-pink-600">
+                                <a href="{{ route('items.show', $item) }}" class="hover:text-orange-600">
                                     {{ $item->name }}
                                 </a>
                             </td>
                             <td class="px-6 py-4 text-gray-700">
-                                <span class="bg-pink-50 text-pink-700 border border-pink-100 text-xs px-2.5 py-1 rounded-full font-medium">
+                                <span class="bg-orange-50 text-orange-700 border border-orange-100 text-xs px-2.5 py-1 rounded-full font-medium">
                                     {{ $item->category->name ?? '-' }}
                                 </span>
                             </td>
@@ -140,7 +140,7 @@
                                     @endif
                                 @else
                                     @if($item->stock > 0)
-                                        <a href="{{ route('loans.create', ['item_id' => $item->id]) }}" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold px-3 py-1 rounded text-xs shadow-sm shadow-pink-200">Pinjam</a>
+                                        <a href="{{ route('loans.create', ['item_id' => $item->id]) }}" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold px-3 py-1 rounded text-xs shadow-sm shadow-orange-200">Pinjam</a>
                                     @else
                                         <span class="text-xs text-gray-400 font-medium italic">Stok Habis</span>
                                     @endif

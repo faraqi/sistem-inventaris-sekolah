@@ -17,7 +17,7 @@
                         <span>Cetak Laporan</span>
                     </a>
                 @endif
-                <a href="{{ route('loans.create') }}" class="inline-flex items-center justify-center gap-2 bg-pink-500 hover:bg-pink-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-md shadow-pink-200 transition">
+                <a href="{{ route('loans.create') }}" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-md shadow-orange-200 transition">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                     </svg>
@@ -30,10 +30,10 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
             <form method="GET" action="{{ route('loans.index') }}" class="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div>
-                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama peminjam / barang..." class="w-full rounded-lg border-gray-300 text-sm focus:border-pink-400 focus:ring-pink-300">
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama peminjam / barang..." class="w-full rounded-lg border-gray-300 text-sm focus:border-orange-400 focus:ring-orange-300">
                 </div>
                 <div>
-                    <select name="status" class="w-full rounded-lg border-gray-300 text-sm focus:border-pink-400 focus:ring-pink-300">
+                    <select name="status" class="w-full rounded-lg border-gray-300 text-sm focus:border-orange-400 focus:ring-orange-300">
                         <option value="">-- Semua Status --</option>
                         <option value="dipinjam" {{ request('status') == 'dipinjam' ? 'selected' : '' }}>Dipinjam (Aktif)</option>
                         <option value="dikembalikan" {{ request('status') == 'dikembalikan' ? 'selected' : '' }}>Dikembalikan</option>
@@ -41,7 +41,7 @@
                     </select>
                 </div>
                 <div class="flex items-center space-x-2">
-                    <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold text-sm py-2 rounded-lg shadow-sm shadow-pink-200 transition">Filter</button>
+                    <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm py-2 rounded-lg shadow-sm shadow-orange-200 transition">Filter</button>
                     @if(request('search') || request('status'))
                         <a href="{{ route('loans.index') }}" class="px-3 py-2 border border-gray-300 rounded-lg text-xs font-semibold text-gray-600 hover:bg-gray-50">Reset</a>
                     @endif
@@ -75,7 +75,7 @@
                                 {{ $loan->user->name ?? '-' }}
                                 <span class="block text-xs font-normal text-gray-400">{{ $loan->user->email ?? '' }}</span>
                             </td>
-                            <td class="px-6 py-4 font-semibold text-pink-600">
+                            <td class="px-6 py-4 font-semibold text-orange-600">
                                 {{ $loan->item->name ?? '-' }}
                                 <span class="block text-xs font-mono font-normal text-gray-400">{{ $loan->item->code ?? '' }}</span>
                             </td>

@@ -19,7 +19,7 @@
 </head>
 <body>
     <div class="no-print" style="margin-bottom: 20px; text-align: right;">
-        <button onclick="window.print()" style="padding: 8px 16px; background: #ec4899; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 6px -1px rgba(236, 72, 153, 0.2);">
+        <button onclick="window.print()" style="padding: 8px 16px; background: #f97316; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.2);">
             Cetak / Export PDF
         </button>
     </div>

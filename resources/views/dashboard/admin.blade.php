@@ -2,12 +2,12 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <h2 class="font-bold text-xl text-gray-800 leading-tight flex items-center gap-2">
-                <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                 </svg>
                 Dashboard Admin - Overview Inventaris
             </h2>
-            <span class="text-sm bg-pink-100 text-pink-700 px-3 py-1 rounded-full font-medium border border-pink-200/80">Administrator (admin)</span>
+            <span class="text-sm bg-orange-100 text-orange-700 px-3 py-1 rounded-full font-medium border border-orange-200/80">Administrator (admin)</span>
         </div>
     </x-slot>
 
@@ -15,13 +15,13 @@
         <!-- 4 Metric Cards -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
             <!-- Total Barang -->
-            <div class="bg-white rounded-xl p-5 shadow-sm border border-pink-100 border-l-4 border-l-pink-500 flex items-center justify-between">
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-orange-100 border-l-4 border-l-orange-500 flex items-center justify-between">
                 <div>
                     <p class="text-xs font-bold uppercase tracking-wider text-gray-400">TOTAL BARANG</p>
                     <h3 class="text-3xl font-extrabold text-gray-900 mt-1">{{ number_format($totalItems, 0, ',', '.') }}</h3>
                     <p class="text-xs text-gray-400 mt-0.5">Jenis Barang Registered</p>
                 </div>
-                <div class="p-3 bg-pink-50 rounded-lg text-pink-600">
+                <div class="p-3 bg-orange-50 rounded-lg text-orange-600">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                     </svg>
@@ -74,21 +74,21 @@
         <!-- 2 Column Widgets: Popular Items & Active Users -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Barang Paling Sering Dipinjam -->
-            <div class="bg-white rounded-xl shadow-sm border border-pink-100 p-5">
-                <div class="flex items-center justify-between pb-3 border-b border-pink-100/60 mb-4">
+            <div class="bg-white rounded-xl shadow-sm border border-orange-100 p-5">
+                <div class="flex items-center justify-between pb-3 border-b border-orange-100/60 mb-4">
                     <h3 class="font-bold text-gray-800 text-base flex items-center gap-2">
-                        <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                         </svg>
                         Barang Paling Sering Dipinjam
                     </h3>
-                    <a href="{{ route('items.index') }}" class="text-xs text-pink-600 hover:underline">Lihat Semua</a>
+                    <a href="{{ route('items.index') }}" class="text-xs text-orange-600 hover:underline">Lihat Semua</a>
                 </div>
                 <div class="space-y-3">
                     @forelse($popularItems as $item)
-                        <div class="flex items-center justify-between p-3 bg-pink-50/30 rounded-lg hover:bg-pink-50/70 transition">
+                        <div class="flex items-center justify-between p-3 bg-orange-50/30 rounded-lg hover:bg-orange-50/70 transition">
                             <div class="flex items-center space-x-3">
-                                <span class="w-8 h-8 rounded-full bg-pink-100 text-pink-700 font-bold text-xs flex items-center justify-center">
+                                <span class="w-8 h-8 rounded-full bg-orange-100 text-orange-700 font-bold text-xs flex items-center justify-center">
                                     {{ $loop->iteration }}
                                 </span>
                                 <div>
@@ -96,7 +96,7 @@
                                     <p class="text-xs text-gray-500">{{ $item->code }} &bull; Stok: {{ number_format($item->stock, 0, ',', '.') }}</p>
                                 </div>
                             </div>
-                            <span class="px-2.5 py-1 bg-pink-500 text-white rounded-full text-xs font-bold shadow-sm">
+                            <span class="px-2.5 py-1 bg-orange-500 text-white rounded-full text-xs font-bold shadow-sm">
                                 {{ $item->loans_count }}x dipinjam
                             </span>
                         </div>

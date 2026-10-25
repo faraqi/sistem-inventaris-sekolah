@@ -8,7 +8,7 @@
                 </h1>
                 <p class="text-xs text-slate-500 mt-0.5">Kelola akun dan perizinan hak akses Admin, Guru, dan Siswa.</p>
             </div>
-            <a href="{{ route('users.create') }}" class="inline-flex items-center justify-center gap-2 bg-pink-500 hover:bg-pink-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-md shadow-pink-200 transition">
+            <a href="{{ route('users.create') }}" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-md shadow-orange-200 transition">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
@@ -20,17 +20,17 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
             <form method="GET" action="{{ route('users.index') }}" class="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div>
-                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama / email user..." class="w-full rounded-lg border-gray-300 text-sm focus:border-pink-400 focus:ring-pink-300">
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama / email user..." class="w-full rounded-lg border-gray-300 text-sm focus:border-orange-400 focus:ring-orange-300">
                 </div>
                 <div>
-                    <select name="role" class="w-full rounded-lg border-gray-300 text-sm focus:border-pink-400 focus:ring-pink-300">
+                    <select name="role" class="w-full rounded-lg border-gray-300 text-sm focus:border-orange-400 focus:ring-orange-300">
                         <option value="">-- Semua Role --</option>
                         <option value="admin" {{ request('role') == 'admin' ? 'selected' : '' }}>Admin</option>
                         <option value="user" {{ request('role') == 'user' ? 'selected' : '' }}>User (Guru/Siswa)</option>
                     </select>
                 </div>
                 <div class="flex items-center space-x-2">
-                    <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold text-sm py-2 rounded-lg shadow-sm shadow-pink-200 transition">Filter</button>
+                    <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm py-2 rounded-lg shadow-sm shadow-orange-200 transition">Filter</button>
                     @if(request('search') || request('role'))
                         <a href="{{ route('users.index') }}" class="px-3 py-2 border border-gray-300 rounded-lg text-xs font-semibold text-gray-600 hover:bg-gray-50">Reset</a>
                     @endif

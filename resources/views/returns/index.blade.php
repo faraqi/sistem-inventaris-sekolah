@@ -4,7 +4,7 @@
             <h2 class="font-bold text-xl text-gray-800 leading-tight">
                 Riwayat Pengembalian Barang Inventaris
             </h2>
-            <a href="{{ route('returns.create') }}" class="bg-pink-500 hover:bg-pink-600 text-white text-sm font-bold px-4 py-2 rounded-lg shadow-md shadow-pink-200 transition">
+            <a href="{{ route('returns.create') }}" class="bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold px-4 py-2 rounded-lg shadow-md shadow-orange-200 transition">
                 + Catat Pengembalian Baru
             </a>
         </div>
@@ -15,10 +15,10 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
             <form method="GET" action="{{ route('returns.index') }}" class="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div>
-                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama peminjam / barang..." class="w-full rounded-lg border-gray-300 text-sm focus:border-pink-400 focus:ring-pink-300">
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama peminjam / barang..." class="w-full rounded-lg border-gray-300 text-sm focus:border-orange-400 focus:ring-orange-300">
                 </div>
                 <div>
-                    <select name="condition" class="w-full rounded-lg border-gray-300 text-sm focus:border-pink-400 focus:ring-pink-300">
+                    <select name="condition" class="w-full rounded-lg border-gray-300 text-sm focus:border-orange-400 focus:ring-orange-300">
                         <option value="">-- Semua Kondisi --</option>
                         <option value="baik" {{ request('condition') == 'baik' ? 'selected' : '' }}>Baik</option>
                         <option value="rusak ringan" {{ request('condition') == 'rusak ringan' ? 'selected' : '' }}>Rusak Ringan</option>
@@ -26,7 +26,7 @@
                     </select>
                 </div>
                 <div class="flex items-center space-x-2">
-                    <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold text-sm py-2 rounded-lg shadow-sm shadow-pink-200 transition">Filter</button>
+                    <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm py-2 rounded-lg shadow-sm shadow-orange-200 transition">Filter</button>
                     @if(request('search') || request('condition'))
                         <a href="{{ route('returns.index') }}" class="px-3 py-2 border border-gray-300 rounded-lg text-xs font-semibold text-gray-600 hover:bg-gray-50">Reset</a>
                     @endif
@@ -59,7 +59,7 @@
                             <td class="px-6 py-4 font-bold text-gray-900">
                                 {{ $log->loan->user->name ?? '-' }}
                             </td>
-                            <td class="px-6 py-4 font-semibold text-pink-600">
+                            <td class="px-6 py-4 font-semibold text-orange-600">
                                 {{ $log->loan->item->name ?? '-' }}
                                 <span class="block text-xs font-mono text-gray-400">({{ $log->loan->quantity ?? 1 }} unit)</span>
                             </td>

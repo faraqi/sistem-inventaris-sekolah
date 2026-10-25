@@ -13,10 +13,10 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
             <form method="GET" action="{{ route('activity_logs.index') }}" class="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div>
-                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama user, aksi, deskripsi..." class="w-full rounded-lg border-gray-300 text-sm focus:border-pink-400 focus:ring-pink-300">
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama user, aksi, deskripsi..." class="w-full rounded-lg border-gray-300 text-sm focus:border-orange-400 focus:ring-orange-300">
                 </div>
                 <div>
-                    <select name="action" class="w-full rounded-lg border-gray-300 text-sm focus:border-pink-400 focus:ring-pink-300">
+                    <select name="action" class="w-full rounded-lg border-gray-300 text-sm focus:border-orange-400 focus:ring-orange-300">
                         <option value="">-- Semua Aksi --</option>
                         @foreach($actions as $action)
                             <option value="{{ $action }}" {{ request('action') == $action ? 'selected' : '' }}>{{ $action }}</option>
@@ -24,7 +24,7 @@
                     </select>
                 </div>
                 <div class="flex items-center space-x-2">
-                    <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold text-sm py-2 rounded-lg shadow-sm shadow-pink-200 transition">Filter</button>
+                    <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm py-2 rounded-lg shadow-sm shadow-orange-200 transition">Filter</button>
                     @if(request('search') || request('action'))
                         <a href="{{ route('activity_logs.index') }}" class="px-3 py-2 border border-gray-300 rounded-lg text-xs font-semibold text-gray-600 hover:bg-gray-50">Reset</a>
                     @endif

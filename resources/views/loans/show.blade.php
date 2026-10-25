@@ -4,7 +4,7 @@
             <h2 class="font-bold text-xl text-gray-800 leading-tight">
                 Detail Transaksi Peminjaman #{{ $loan->id }}
             </h2>
-            <a href="{{ route('loans.index') }}" class="text-sm text-gray-600 hover:text-pink-600 font-medium transition">&larr; Kembali ke Riwayat Peminjaman</a>
+            <a href="{{ route('loans.index') }}" class="text-sm text-gray-600 hover:text-orange-600 font-medium transition">&larr; Kembali ke Riwayat Peminjaman</a>
         </div>
     </x-slot>
 
@@ -39,7 +39,7 @@
 
                     <div class="bg-gray-50 p-4 rounded-lg">
                         <p class="text-xs font-bold uppercase text-gray-400">Barang Inventaris</p>
-                        <p class="text-base font-bold text-pink-600 mt-1">{{ $loan->item->name ?? '-' }}</p>
+                        <p class="text-base font-bold text-orange-600 mt-1">{{ $loan->item->name ?? '-' }}</p>
                         <p class="text-xs font-mono text-gray-500">SKU: {{ $loan->item->code ?? '-' }} | Kategori: {{ $loan->item->category->name ?? '-' }}</p>
                         <p class="text-sm font-bold text-gray-800 mt-2">Jumlah: {{ number_format($loan->quantity, 0, ',', '.') }} unit</p>
                     </div>

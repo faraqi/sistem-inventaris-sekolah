@@ -1,10 +1,10 @@
-<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b border-pink-100/90 transition-all" x-data="{ open: false }">
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b border-orange-100/90 transition-all" x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 sm:h-[70px] gap-2 sm:gap-4">
             <!-- Left: Logo & Identity -->
             <div class="flex items-center gap-2.5 sm:gap-3.5 shrink-0">
                 <a href="{{ route('dashboard') }}" class="flex items-center gap-2 sm:gap-3.5">
-                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-pink-500 to-rose-400 text-white flex items-center justify-center shadow-subtle border border-pink-300/40 shrink-0">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-orange-500 to-amber-400 text-white flex items-center justify-center shadow-subtle border border-orange-300/40 shrink-0">
                         <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
                             <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                             <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
@@ -14,19 +14,19 @@
                     <div>
                         <div class="flex items-center gap-1.5 sm:gap-2">
                             <span class="text-xs sm:text-sm font-bold tracking-wider text-slate-900 uppercase">INVENTARIS SEKOLAH</span>
-                            <span class="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-pink-50 text-pink-700 border border-pink-200/80">
-                                <span class="w-1 h-1 rounded-full bg-pink-500 mr-1 animate-pulse"></span> Pink Edition
+                            <span class="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-orange-50 text-orange-700 border border-orange-200/80">
+                                <span class="w-1 h-1 rounded-full bg-orange-500 mr-1 animate-pulse"></span> Orange Edition
                             </span>
                         </div>
-                        <p class="text-[10px] sm:text-[11px] text-pink-600/80 font-medium">SMKN 1 KETAPANG</p>
+                        <p class="text-[10px] sm:text-[11px] text-orange-600/80 font-medium">SMKN 1 KETAPANG</p>
                     </div>
                 </a>
             </div>
 
             <!-- Middle: Nav Links (Desktop Modern Pill Tabs) -->
-            <nav aria-label="Main Navigation" class="hidden md:flex items-center p-1 bg-pink-50/70 rounded-xl border border-pink-100/90">
-                <a class="px-3 py-1.5 rounded-lg text-xs font-semibold {{ request()->routeIs('dashboard') ? 'bg-white text-pink-700 shadow-sm border border-pink-200/70' : 'text-slate-600 hover:text-pink-700 hover:bg-white/60' }} flex items-center gap-1.5 transition-all" href="{{ route('dashboard') }}">
-                    <svg class="w-3.5 h-3.5 {{ request()->routeIs('dashboard') ? 'text-pink-600' : 'text-slate-400' }}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <nav aria-label="Main Navigation" class="hidden md:flex items-center p-1 bg-orange-50/70 rounded-xl border border-orange-100/90">
+                <a class="px-3 py-1.5 rounded-lg text-xs font-semibold {{ request()->routeIs('dashboard') ? 'bg-white text-orange-700 shadow-sm border border-orange-200/70' : 'text-slate-600 hover:text-orange-700 hover:bg-white/60' }} flex items-center gap-1.5 transition-all" href="{{ route('dashboard') }}">
+                    <svg class="w-3.5 h-3.5 {{ request()->routeIs('dashboard') ? 'text-orange-600' : 'text-slate-400' }}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                         <rect height="7" rx="1.5" width="7" x="3" y="3"></rect>
                         <rect height="7" rx="1.5" width="7" x="14" y="3"></rect>
                         <rect height="7" rx="1.5" width="7" x="14" y="14"></rect>
@@ -35,16 +35,16 @@
                     <span>Dashboard</span>
                 </a>
 
-                <a class="px-3 py-1.5 rounded-lg text-xs font-semibold {{ request()->routeIs('items.*') ? 'bg-white text-pink-700 shadow-sm border border-pink-200/70' : 'text-slate-600 hover:text-pink-700 hover:bg-white/60' }} flex items-center gap-1.5 transition-all" href="{{ route('items.index') }}">
-                    <svg class="w-3.5 h-3.5 {{ request()->routeIs('items.*') ? 'text-pink-600' : 'text-slate-400' }}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <a class="px-3 py-1.5 rounded-lg text-xs font-semibold {{ request()->routeIs('items.*') ? 'bg-white text-orange-700 shadow-sm border border-orange-200/70' : 'text-slate-600 hover:text-orange-700 hover:bg-white/60' }} flex items-center gap-1.5 transition-all" href="{{ route('items.index') }}">
+                    <svg class="w-3.5 h-3.5 {{ request()->routeIs('items.*') ? 'text-orange-600' : 'text-slate-400' }}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                     </svg>
                     <span>Katalog Barang</span>
                 </a>
 
-                <a class="px-3 py-1.5 rounded-lg text-xs font-semibold {{ request()->routeIs('loans.*') ? 'bg-white text-pink-700 shadow-sm border border-pink-200/70' : 'text-slate-600 hover:text-pink-700 hover:bg-white/60' }} flex items-center gap-1.5 transition-all" href="{{ route('loans.index') }}">
-                    <svg class="w-3.5 h-3.5 {{ request()->routeIs('loans.*') ? 'text-pink-600' : 'text-slate-400' }}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <a class="px-3 py-1.5 rounded-lg text-xs font-semibold {{ request()->routeIs('loans.*') ? 'bg-white text-orange-700 shadow-sm border border-orange-200/70' : 'text-slate-600 hover:text-orange-700 hover:bg-white/60' }} flex items-center gap-1.5 transition-all" href="{{ route('loans.index') }}">
+                    <svg class="w-3.5 h-3.5 {{ request()->routeIs('loans.*') ? 'text-orange-600' : 'text-slate-400' }}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <circle cx="12" cy="12" r="10"></circle>
                         <polyline points="12 6 12 12 16 14"></polyline>
                     </svg>
@@ -52,16 +52,16 @@
                 </a>
 
                 @if(Auth::user()->isAdmin())
-                    <a class="px-3 py-1.5 rounded-lg text-xs font-semibold {{ request()->routeIs('categories.*') ? 'bg-white text-pink-700 shadow-sm border border-pink-200/70' : 'text-slate-600 hover:text-pink-700 hover:bg-white/60' }} transition-all" href="{{ route('categories.index') }}">
+                    <a class="px-3 py-1.5 rounded-lg text-xs font-semibold {{ request()->routeIs('categories.*') ? 'bg-white text-orange-700 shadow-sm border border-orange-200/70' : 'text-slate-600 hover:text-orange-700 hover:bg-white/60' }} transition-all" href="{{ route('categories.index') }}">
                         Kategori
                     </a>
-                    <a class="px-3 py-1.5 rounded-lg text-xs font-semibold {{ request()->routeIs('returns.*') ? 'bg-white text-pink-700 shadow-sm border border-pink-200/70' : 'text-slate-600 hover:text-pink-700 hover:bg-white/60' }} transition-all" href="{{ route('returns.index') }}">
+                    <a class="px-3 py-1.5 rounded-lg text-xs font-semibold {{ request()->routeIs('returns.*') ? 'bg-white text-orange-700 shadow-sm border border-orange-200/70' : 'text-slate-600 hover:text-orange-700 hover:bg-white/60' }} transition-all" href="{{ route('returns.index') }}">
                         Pengembalian
                     </a>
-                    <a class="px-3 py-1.5 rounded-lg text-xs font-semibold {{ request()->routeIs('users.*') ? 'bg-white text-pink-700 shadow-sm border border-pink-200/70' : 'text-slate-600 hover:text-pink-700 hover:bg-white/60' }} transition-all" href="{{ route('users.index') }}">
+                    <a class="px-3 py-1.5 rounded-lg text-xs font-semibold {{ request()->routeIs('users.*') ? 'bg-white text-orange-700 shadow-sm border border-orange-200/70' : 'text-slate-600 hover:text-orange-700 hover:bg-white/60' }} transition-all" href="{{ route('users.index') }}">
                         User
                     </a>
-                    <a class="px-3 py-1.5 rounded-lg text-xs font-semibold {{ request()->routeIs('activity_logs.*') ? 'bg-white text-pink-700 shadow-sm border border-pink-200/70' : 'text-slate-600 hover:text-pink-700 hover:bg-white/60' }} transition-all" href="{{ route('activity_logs.index') }}">
+                    <a class="px-3 py-1.5 rounded-lg text-xs font-semibold {{ request()->routeIs('activity_logs.*') ? 'bg-white text-orange-700 shadow-sm border border-orange-200/70' : 'text-slate-600 hover:text-orange-700 hover:bg-white/60' }} transition-all" href="{{ route('activity_logs.index') }}">
                         Activity Log
                     </a>
                 @endif
@@ -70,8 +70,8 @@
             <!-- Right: Actions, User Monogram, & Hamburger -->
             <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
                 <!-- Primary CTA -->
-                <a href="{{ route('loans.create') }}" class="btn-shine inline-flex items-center gap-1 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white text-xs font-semibold shadow-sm shadow-pink-500/20 hover:shadow transition-all active:scale-[0.98]">
-                    <svg class="w-3.5 h-3.5 text-pink-100" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <a href="{{ route('loans.create') }}" class="btn-shine inline-flex items-center gap-1 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-rose-600 text-white text-xs font-semibold shadow-sm shadow-orange-500/20 hover:shadow transition-all active:scale-[0.98]">
+                    <svg class="w-3.5 h-3.5 text-orange-100" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <line x1="12" x2="12" y1="5" y2="19"></line>
                         <line x1="5" x2="19" y1="12" y2="12"></line>
                     </svg>
@@ -79,13 +79,13 @@
                     <span class="sm:hidden text-[11px]">+ Pinjam</span>
                 </a>
 
-                <div class="h-5 w-px bg-pink-100 hidden sm:block"></div>
+                <div class="h-5 w-px bg-orange-100 hidden sm:block"></div>
 
                 <!-- User Monogram Card Dropdown -->
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <div class="flex items-center gap-1.5 sm:gap-2.5 p-1 sm:pl-1.5 sm:pr-2.5 sm:py-1 rounded-xl bg-white border border-pink-100/90 shadow-subtle hover:border-pink-300 transition-all cursor-pointer">
-                            <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-pink-500 to-rose-400 text-white font-bold text-xs flex items-center justify-center shadow-xs shrink-0">
+                        <div class="flex items-center gap-1.5 sm:gap-2.5 p-1 sm:pl-1.5 sm:pr-2.5 sm:py-1 rounded-xl bg-white border border-orange-100/90 shadow-subtle hover:border-orange-300 transition-all cursor-pointer">
+                            <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-orange-500 to-amber-400 text-white font-bold text-xs flex items-center justify-center shadow-xs shrink-0">
                                 {{ strtoupper(substr(Auth::user()->name, 0, 2)) }}
                             </div>
                             <div class="hidden sm:block text-left leading-tight">
@@ -99,7 +99,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <div class="px-4 py-2 border-b border-pink-50 sm:hidden">
+                        <div class="px-4 py-2 border-b border-orange-50 sm:hidden">
                             <div class="font-bold text-xs text-slate-900">{{ Auth::user()->name }}</div>
                             <div class="text-[10px] text-slate-500 capitalize">{{ Auth::user()->email }}</div>
                         </div>
@@ -116,7 +116,7 @@
                 </x-dropdown>
 
                 <!-- Hamburger Button for Mobile -->
-                <button @click="open = ! open" type="button" class="md:hidden inline-flex items-center justify-center p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-pink-50 focus:outline-none transition-colors border border-pink-100/80">
+                <button @click="open = ! open" type="button" class="md:hidden inline-flex items-center justify-center p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-orange-50 focus:outline-none transition-colors border border-orange-100/80">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -128,44 +128,44 @@
 
 
     <!-- Responsive Mobile Menu Navigation Drawer -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden md:hidden border-t border-pink-100/80 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-5 space-y-1.5 shadow-float">
-        <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold {{ request()->routeIs('dashboard') ? 'bg-pink-50 text-pink-700 font-bold' : 'text-slate-700 hover:bg-pink-50/50' }}" href="{{ route('dashboard') }}">
-            <svg class="w-4 h-4 text-pink-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect height="7" rx="1.5" width="7" x="3" y="3"></rect><rect height="7" rx="1.5" width="7" x="14" y="3"></rect><rect height="7" rx="1.5" width="7" x="14" y="14"></rect><rect height="7" rx="1.5" width="7" x="3" y="14"></rect></svg>
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden md:hidden border-t border-orange-100/80 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-5 space-y-1.5 shadow-float">
+        <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold {{ request()->routeIs('dashboard') ? 'bg-orange-50 text-orange-700 font-bold' : 'text-slate-700 hover:bg-orange-50/50' }}" href="{{ route('dashboard') }}">
+            <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect height="7" rx="1.5" width="7" x="3" y="3"></rect><rect height="7" rx="1.5" width="7" x="14" y="3"></rect><rect height="7" rx="1.5" width="7" x="14" y="14"></rect><rect height="7" rx="1.5" width="7" x="3" y="14"></rect></svg>
             Dashboard
         </a>
-        <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold {{ request()->routeIs('items.*') ? 'bg-pink-50 text-pink-700 font-bold' : 'text-slate-700 hover:bg-pink-50/50' }}" href="{{ route('items.index') }}">
+        <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold {{ request()->routeIs('items.*') ? 'bg-orange-50 text-orange-700 font-bold' : 'text-slate-700 hover:bg-orange-50/50' }}" href="{{ route('items.index') }}">
             <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
             Katalog Barang
         </a>
-        <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold {{ request()->routeIs('loans.*') ? 'bg-pink-50 text-pink-700 font-bold' : 'text-slate-700 hover:bg-pink-50/50' }}" href="{{ route('loans.index') }}">
+        <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold {{ request()->routeIs('loans.*') ? 'bg-orange-50 text-orange-700 font-bold' : 'text-slate-700 hover:bg-orange-50/50' }}" href="{{ route('loans.index') }}">
             <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             Peminjaman
         </a>
 
         @if(Auth::user()->isAdmin())
-            <div class="pt-2 pb-1 border-t border-pink-100 my-1">
-                <span class="px-3 text-[10px] font-bold uppercase tracking-wider text-pink-500/80">Menu Pengelola (Admin)</span>
+            <div class="pt-2 pb-1 border-t border-orange-100 my-1">
+                <span class="px-3 text-[10px] font-bold uppercase tracking-wider text-orange-500/80">Menu Pengelola (Admin)</span>
             </div>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold {{ request()->routeIs('categories.*') ? 'bg-pink-50 text-pink-700' : 'text-slate-700 hover:bg-pink-50/50' }}" href="{{ route('categories.index') }}">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold {{ request()->routeIs('categories.*') ? 'bg-orange-50 text-orange-700' : 'text-slate-700 hover:bg-orange-50/50' }}" href="{{ route('categories.index') }}">
                 <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 <span>Kategori Barang</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold {{ request()->routeIs('returns.*') ? 'bg-pink-50 text-pink-700' : 'text-slate-700 hover:bg-pink-50/50' }}" href="{{ route('returns.index') }}">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold {{ request()->routeIs('returns.*') ? 'bg-orange-50 text-orange-700' : 'text-slate-700 hover:bg-orange-50/50' }}" href="{{ route('returns.index') }}">
                 <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                 <span>Pengembalian Barang</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold {{ request()->routeIs('users.*') ? 'bg-pink-50 text-pink-700' : 'text-slate-700 hover:bg-pink-50/50' }}" href="{{ route('users.index') }}">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold {{ request()->routeIs('users.*') ? 'bg-orange-50 text-orange-700' : 'text-slate-700 hover:bg-orange-50/50' }}" href="{{ route('users.index') }}">
                 <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
                 <span>Manajemen User</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold {{ request()->routeIs('activity_logs.*') ? 'bg-pink-50 text-pink-700' : 'text-slate-700 hover:bg-pink-50/50' }}" href="{{ route('activity_logs.index') }}">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold {{ request()->routeIs('activity_logs.*') ? 'bg-orange-50 text-orange-700' : 'text-slate-700 hover:bg-orange-50/50' }}" href="{{ route('activity_logs.index') }}">
                 <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                 <span>Activity Log (Audit Trail)</span>
             </a>
         @endif
 
-        <div class="pt-2 border-t border-pink-100 my-1">
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-pink-50/50" href="{{ route('profile.edit') }}">
+        <div class="pt-2 border-t border-orange-100 my-1">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-orange-50/50" href="{{ route('profile.edit') }}">
                 <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                 <span>Profile Akun</span>
             </a>
@@ -182,10 +182,10 @@
 
 <!-- FIXED BOTTOM MOBILE NAVIGATION BAR WITH COMPLETE SLIDE-UP SHEET -->
 <div x-data="{ menuOpen: false }">
-    <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-pink-100 shadow-float px-2 py-2 flex items-center justify-around select-none">
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-orange-100 shadow-float px-2 py-2 flex items-center justify-around select-none">
         <!-- Dashboard / Home -->
-        <a href="{{ route('dashboard') }}" class="flex flex-col items-center justify-center py-1 px-3.5 rounded-xl transition-all duration-150 active:scale-90 {{ request()->routeIs('dashboard') ? 'bg-pink-50 text-pink-700 font-bold border border-pink-200/80 shadow-xs' : 'text-slate-500 hover:text-slate-800' }}">
-            <svg class="w-5 h-5 {{ request()->routeIs('dashboard') ? 'text-pink-600' : 'text-slate-400' }}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+        <a href="{{ route('dashboard') }}" class="flex flex-col items-center justify-center py-1 px-3.5 rounded-xl transition-all duration-150 active:scale-90 {{ request()->routeIs('dashboard') ? 'bg-orange-50 text-orange-700 font-bold border border-orange-200/80 shadow-xs' : 'text-slate-500 hover:text-slate-800' }}">
+            <svg class="w-5 h-5 {{ request()->routeIs('dashboard') ? 'text-orange-600' : 'text-slate-400' }}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                 <rect height="7" rx="1.5" width="7" x="3" y="3"></rect>
                 <rect height="7" rx="1.5" width="7" x="14" y="3"></rect>
                 <rect height="7" rx="1.5" width="7" x="14" y="14"></rect>
@@ -195,8 +195,8 @@
         </a>
 
         <!-- Katalog Barang -->
-        <a href="{{ route('items.index') }}" class="flex flex-col items-center justify-center py-1 px-3.5 rounded-xl transition-all duration-150 active:scale-90 {{ request()->routeIs('items.*') ? 'bg-pink-50 text-pink-700 font-bold border border-pink-200/80 shadow-xs' : 'text-slate-500 hover:text-slate-800' }}">
-            <svg class="w-5 h-5 {{ request()->routeIs('items.*') ? 'text-pink-600' : 'text-slate-400' }}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+        <a href="{{ route('items.index') }}" class="flex flex-col items-center justify-center py-1 px-3.5 rounded-xl transition-all duration-150 active:scale-90 {{ request()->routeIs('items.*') ? 'bg-orange-50 text-orange-700 font-bold border border-orange-200/80 shadow-xs' : 'text-slate-500 hover:text-slate-800' }}">
+            <svg class="w-5 h-5 {{ request()->routeIs('items.*') ? 'text-orange-600' : 'text-slate-400' }}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                 <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
             </svg>
@@ -205,18 +205,18 @@
 
         <!-- Pinjam CTA (Center Floating Action Button) -->
         <a href="{{ route('loans.create') }}" class="flex flex-col items-center justify-center -mt-5 group active:scale-90 transition-transform">
-            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white flex items-center justify-center shadow-lg shadow-pink-500/30 border-2 border-white transition-all">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 hover:from-orange-600 hover:to-rose-600 text-white flex items-center justify-center shadow-lg shadow-orange-500/30 border-2 border-white transition-all">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <line x1="12" x2="12" y1="5" y2="19"></line>
                     <line x1="5" x2="19" y1="12" y2="12"></line>
                 </svg>
             </div>
-            <span class="text-[10px] text-pink-600 font-bold mt-0.5">Pinjam</span>
+            <span class="text-[10px] text-orange-600 font-bold mt-0.5">Pinjam</span>
         </a>
 
         <!-- Peminjaman -->
-        <a href="{{ route('loans.index') }}" class="flex flex-col items-center justify-center py-1 px-3.5 rounded-xl transition-all duration-150 active:scale-90 {{ request()->routeIs('loans.*') ? 'bg-pink-50 text-pink-700 font-bold border border-pink-200/80 shadow-xs' : 'text-slate-500 hover:text-slate-800' }}">
-            <svg class="w-5 h-5 {{ request()->routeIs('loans.*') ? 'text-pink-600' : 'text-slate-400' }}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+        <a href="{{ route('loans.index') }}" class="flex flex-col items-center justify-center py-1 px-3.5 rounded-xl transition-all duration-150 active:scale-90 {{ request()->routeIs('loans.*') ? 'bg-orange-50 text-orange-700 font-bold border border-orange-200/80 shadow-xs' : 'text-slate-500 hover:text-slate-800' }}">
+            <svg class="w-5 h-5 {{ request()->routeIs('loans.*') ? 'text-orange-600' : 'text-slate-400' }}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="10"></circle>
                 <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
@@ -224,8 +224,8 @@
         </a>
 
         <!-- Menu / Lainnya Drawer Trigger -->
-        <button type="button" @click="menuOpen = !menuOpen" class="flex flex-col items-center justify-center py-1 px-3.5 rounded-xl transition-all duration-150 active:scale-90 {{ (request()->routeIs('categories.*') || request()->routeIs('returns.*') || request()->routeIs('users.*') || request()->routeIs('activity_logs.*') || request()->routeIs('profile.*')) ? 'bg-pink-50 text-pink-700 font-bold border border-pink-200/80 shadow-xs' : 'text-slate-500 hover:text-slate-800' }}">
-            <svg class="w-5 h-5 {{ (request()->routeIs('categories.*') || request()->routeIs('returns.*') || request()->routeIs('users.*') || request()->routeIs('activity_logs.*') || request()->routeIs('profile.*')) ? 'text-pink-600' : 'text-slate-400' }}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+        <button type="button" @click="menuOpen = !menuOpen" class="flex flex-col items-center justify-center py-1 px-3.5 rounded-xl transition-all duration-150 active:scale-90 {{ (request()->routeIs('categories.*') || request()->routeIs('returns.*') || request()->routeIs('users.*') || request()->routeIs('activity_logs.*') || request()->routeIs('profile.*')) ? 'bg-orange-50 text-orange-700 font-bold border border-orange-200/80 shadow-xs' : 'text-slate-500 hover:text-slate-800' }}">
+            <svg class="w-5 h-5 {{ (request()->routeIs('categories.*') || request()->routeIs('returns.*') || request()->routeIs('users.*') || request()->routeIs('activity_logs.*') || request()->routeIs('profile.*')) ? 'text-orange-600' : 'text-slate-400' }}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                 <circle cx="12" cy="5" r="1.5"></circle>
                 <circle cx="12" cy="12" r="1.5"></circle>
                 <circle cx="12" cy="19" r="1.5"></circle>
@@ -237,9 +237,9 @@
     <!-- Slide-Up Bottom Sheet Modal for Mobile Menu -->
     <div x-show="menuOpen" @click.self="menuOpen = false" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="md:hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-end justify-center" style="display: none;">
         <div x-show="menuOpen" x-transition:enter="transition ease-out duration-250 transform" x-transition:enter-start="translate-y-full" x-transition:enter-end="translate-y-0" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="translate-y-0" x-transition:leave-end="translate-y-full" class="w-full bg-white rounded-t-3xl p-5 shadow-float max-h-[85vh] overflow-y-auto space-y-4">
-            <div class="flex items-center justify-between pb-3 border-b border-pink-100">
+            <div class="flex items-center justify-between pb-3 border-b border-orange-100">
                 <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-pink-500"></span>
+                    <span class="w-2 h-2 rounded-full bg-orange-500"></span>
                     <h3 class="text-sm font-bold text-slate-900">Menu Navigasi Lengkap</h3>
                 </div>
                 <button type="button" @click="menuOpen = false" class="text-slate-400 hover:text-slate-600 p-1">
@@ -249,10 +249,10 @@
 
             @if(Auth::user()->isAdmin())
                 <div class="space-y-1">
-                    <p class="text-[10px] font-bold uppercase tracking-wider text-pink-500/80 px-3 pb-1">Pengelola (Admin)</p>
+                    <p class="text-[10px] font-bold uppercase tracking-wider text-orange-500/80 px-3 pb-1">Pengelola (Admin)</p>
                     
-                    <a href="{{ route('categories.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold {{ request()->routeIs('categories.*') ? 'bg-pink-50 text-pink-700' : 'text-slate-700 hover:bg-pink-50/50' }}">
-                        <div class="w-8 h-8 rounded-lg bg-pink-50 text-pink-600 flex items-center justify-center shrink-0">
+                    <a href="{{ route('categories.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold {{ request()->routeIs('categories.*') ? 'bg-orange-50 text-orange-700' : 'text-slate-700 hover:bg-orange-50/50' }}">
+                        <div class="w-8 h-8 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center shrink-0">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </div>
                         <div>
@@ -261,7 +261,7 @@
                         </div>
                     </a>
 
-                    <a href="{{ route('returns.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold {{ request()->routeIs('returns.*') ? 'bg-pink-50 text-pink-700' : 'text-slate-700 hover:bg-pink-50/50' }}">
+                    <a href="{{ route('returns.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold {{ request()->routeIs('returns.*') ? 'bg-orange-50 text-orange-700' : 'text-slate-700 hover:bg-orange-50/50' }}">
                         <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                         </div>
@@ -271,7 +271,7 @@
                         </div>
                     </a>
 
-                    <a href="{{ route('users.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold {{ request()->routeIs('users.*') ? 'bg-pink-50 text-pink-700' : 'text-slate-700 hover:bg-pink-50/50' }}">
+                    <a href="{{ route('users.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold {{ request()->routeIs('users.*') ? 'bg-orange-50 text-orange-700' : 'text-slate-700 hover:bg-orange-50/50' }}">
                         <div class="w-8 h-8 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
                         </div>
@@ -281,7 +281,7 @@
                         </div>
                     </a>
 
-                    <a href="{{ route('activity_logs.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold {{ request()->routeIs('activity_logs.*') ? 'bg-pink-50 text-pink-700' : 'text-slate-700 hover:bg-pink-50/50' }}">
+                    <a href="{{ route('activity_logs.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold {{ request()->routeIs('activity_logs.*') ? 'bg-orange-50 text-orange-700' : 'text-slate-700 hover:bg-orange-50/50' }}">
                         <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                         </div>
@@ -293,9 +293,9 @@
                 </div>
             @endif
 
-            <div class="pt-2 border-t border-pink-100 space-y-1">
-                <p class="text-[10px] font-bold uppercase tracking-wider text-pink-500/80 px-3 pb-1">Pengaturan Akun</p>
-                <a href="{{ route('profile.edit') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-pink-50/50">
+            <div class="pt-2 border-t border-orange-100 space-y-1">
+                <p class="text-[10px] font-bold uppercase tracking-wider text-orange-500/80 px-3 pb-1">Pengaturan Akun</p>
+                <a href="{{ route('profile.edit') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-orange-50/50">
                     <div class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                     </div>

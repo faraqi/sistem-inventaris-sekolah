@@ -8,7 +8,7 @@
                 </h1>
                 <p class="text-xs text-slate-500 mt-0.5">Kelola daftar pengelompokan dan kategori barang inventaris sekolah.</p>
             </div>
-            <a href="{{ route('categories.create') }}" class="inline-flex items-center justify-center gap-2 bg-pink-500 hover:bg-pink-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-md shadow-pink-200 transition">
+            <a href="{{ route('categories.create') }}" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-md shadow-orange-200 transition">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
@@ -20,17 +20,17 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
             <form method="GET" action="{{ route('categories.index') }}" class="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div>
-                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama kategori..." class="w-full rounded-lg border-gray-300 text-sm focus:border-pink-400 focus:ring-pink-300">
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama kategori..." class="w-full rounded-lg border-gray-300 text-sm focus:border-orange-400 focus:ring-orange-300">
                 </div>
                 <div>
-                    <select name="filter" class="w-full rounded-lg border-gray-300 text-sm focus:border-pink-400 focus:ring-pink-300">
+                    <select name="filter" class="w-full rounded-lg border-gray-300 text-sm focus:border-orange-400 focus:ring-orange-300">
                         <option value="">-- Semua Kategori --</option>
                         <option value="with_items" {{ request('filter') == 'with_items' ? 'selected' : '' }}>Memiliki Barang</option>
                         <option value="empty" {{ request('filter') == 'empty' ? 'selected' : '' }}>Belum Ada Barang</option>
                     </select>
                 </div>
                 <div class="flex items-center space-x-2">
-                    <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold text-sm py-2 rounded-lg shadow-sm shadow-pink-200 transition">Filter</button>
+                    <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm py-2 rounded-lg shadow-sm shadow-orange-200 transition">Filter</button>
                     @if(request('search') || request('filter'))
                         <a href="{{ route('categories.index') }}" class="px-3 py-2 border border-gray-300 rounded-lg text-xs font-semibold text-gray-600 hover:bg-gray-50">Reset</a>
                     @endif
@@ -62,7 +62,7 @@
                                 {{ $category->name }}
                             </td>
                             <td class="px-6 py-4">
-                                <span class="px-2.5 py-1 bg-pink-50 text-pink-700 border border-pink-100 rounded-full font-bold text-xs">
+                                <span class="px-2.5 py-1 bg-orange-50 text-orange-700 border border-orange-100 rounded-full font-bold text-xs">
                                     {{ number_format($category->items_count, 0, ',', '.') }} barang
                                 </span>
                             </td>

@@ -47,12 +47,12 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-between mt-5 pt-2 border-t border-pink-50">
-            <a class="underline text-xs text-gray-600 hover:text-pink-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-400" href="{{ route('login') }}">
+        <div class="flex items-center justify-between mt-5 pt-2 border-t border-orange-50">
+            <a class="underline text-xs text-gray-600 hover:text-orange-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400" href="{{ route('login') }}">
                 Sudah punya akun? Masuk
             </a>
 
-            <x-primary-button class="ms-4 bg-pink-500 hover:bg-pink-600 text-white shadow-md shadow-pink-200">
+            <x-primary-button class="ms-4 bg-orange-500 hover:bg-orange-600 text-white shadow-md shadow-orange-200">
                 Daftar Akun
             </x-primary-button>
         </div>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-[#f8fafc] antialiased" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard Inventaris Sarpras — SMK Negeri 1</title>
+<!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          colors: {
+            slate: {
+              850: '#151f32',
+              900: '#0f172a',
+              950: '#090d16',
+            },
+            primary: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            }
+          },
+          boxShadow: {
+            'subtle': '0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 3px 0 rgba(0, 0, 0, 0.04)',
+            'card': '0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 4px 12px -2px rgba(15, 23, 42, 0.03)',
+            'card-hover': '0 10px 25px -4px rgba(15, 23, 42, 0.06), 0 4px 10px -2px rgba(15, 23, 42, 0.03)',
+            'float': '0 20px 35px -8px rgba(15, 23, 42, 0.08), 0 8px 16px -4px rgba(15, 23, 42, 0.03)',
+            'glow-primary': '0 0 24px -4px rgba(79, 70, 229, 0.28)',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-decorations">
+    /* Subtle background grid pattern like Linear / Raycast */
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(148, 163, 184, 0.18) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    
+    /* Sleek gradient button shine */
+    .btn-shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shine::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.25) 50%,
+        rgba(255, 255, 255, 0) 80%
+      );
+      transform: rotate(25deg);
+      transition: all 0.75s ease;
+    }
+    .btn-shine:hover::after {
+      left: 130%;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#f8fafc] text-slate-800 antialiased flex flex-col font-sans selection:bg-indigo-500 selection:text-white bg-grid-pattern">
+<!-- BEGIN: Header Navigation -->
+<header class="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-slate-200/80 transition-all">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16 sm:h-[70px] gap-4">
+<!-- Left: Logo & Identity -->
+<div class="flex items-center gap-3.5 shrink-0">
+<div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shadow-subtle border border-slate-800">
+<svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+<polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+<line x1="12" x2="12" y1="22.08" y2="12"></line>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold tracking-tight text-slate-900 uppercase tracking-wide">Inventaris Sarpras</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80">
+<span class="w-1 h-1 rounded-full bg-emerald-500 mr-1 animate-pulse"></span> v2.4 Live
+              </span>
+</div>
+<p class="text-[11px] text-slate-500 font-medium">SMK Negeri 1 Solusi Terpadu</p>
+</div>
+</div>
+<!-- Middle: Nav Links (Modern Pill Tabs) -->
+<nav aria-label="Main Navigation" class="hidden md:flex items-center p-1 bg-slate-100/90 rounded-xl border border-slate-200/70">
+<a class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-900 shadow-sm border border-slate-200/50 flex items-center gap-2 transition-all" href="#">
+<svg class="w-3.5 h-3.5 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<rect height="7" rx="1.5" width="7" x="3" y="3"></rect>
+<rect height="7" rx="1.5" width="7" x="14" y="3"></rect>
+<rect height="7" rx="1.5" width="7" x="14" y="14"></rect>
+<rect height="7" rx="1.5" width="7" x="3" y="14"></rect>
+</svg>
+<span>Dashboard</span>
+</a>
+<a class="px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-white/50 transition-all flex items-center gap-1.5" href="#katalog">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+</svg>
+<span>Katalog Sarpras</span>
+</a>
+<a class="px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-white/50 transition-all flex items-center gap-1.5" href="#peminjaman">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+<span>Peminjaman Aktif</span>
+<span class="inline-flex items-center justify-center px-1.5 py-0.2 text-[10px] font-bold bg-amber-100 text-amber-800 rounded-full ml-0.5">1</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-white/50 transition-all" href="#">
+            Riwayat
+          </a>
+<a class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-white/50 transition-all" href="#">
+            SOP Sarpras
+          </a>
+</nav>
+<!-- Right: Actions & User Monogram -->
+<div class="flex items-center gap-2.5">
+<!-- Primary CTA -->
+<button class="btn-shine inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-sm hover:shadow transition-all active:scale-[0.98]" type="button">
+<svg class="w-3.5 h-3.5 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<line x1="12" x2="12" y1="5" y2="19"></line>
+<line x1="5" x2="19" y1="12" y2="12"></line>
+</svg>
+<span class="hidden sm:inline">Ajukan Pinjaman</span>
+<span class="sm:hidden">Pinjam</span>
+</button>
+<div class="h-5 w-px bg-slate-200 hidden sm:block"></div>
+<!-- Notification Bell -->
+<button aria-label="Notifikasi" class="relative p-2 rounded-xl text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+<path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+</svg>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-rose-500 ring-2 ring-white"></span>
+</button>
+<!-- User Card Dropdown -->
+<div class="flex items-center gap-2.5 pl-1.5 pr-2.5 py-1 rounded-xl bg-white border border-slate-200/90 shadow-subtle hover:border-slate-300 transition-all cursor-pointer">
+<div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-indigo-600 to-indigo-500 text-white font-bold text-xs flex items-center justify-center shadow-xs">
+              BS
+            </div>
+<div class="hidden sm:block text-left leading-tight">
+<div class="text-xs font-bold text-slate-900">Budi Santoso</div>
+<div class="text-[10px] text-slate-500 font-medium">Siswa • XII RPL 1</div>
+</div>
+<svg class="w-3.5 h-3.5 text-slate-400 ml-0.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<polyline points="6 9 12 15 18 9"></polyline>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- END: Header Navigation -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-7 space-y-7">
+<!-- BEGIN: Refined Greeting Banner -->
+<section class="relative overflow-hidden rounded-2xl bg-white border border-slate-200/80 p-6 shadow-card" data-purpose="greeting-banner">
+<!-- Clean background accents -->
+<div class="absolute top-0 right-0 -mt-6 -mr-6 w-80 h-80 bg-gradient-to-br from-indigo-50/70 via-slate-50/50 to-transparent rounded-full blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700 border border-slate-200/80">
+              T.A. 2026/2027 • Semester Genap
+            </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/60">
+              Akun Terverifikasi
+            </span>
+</div>
+<h1 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">
+            Selamat Datang Kembali, Budi Santoso
+          </h1>
+<p class="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl">
+            Akses inventaris sarana dan prasarana praktik kejuruan secara real-time. Pastikan pengembalian tepat waktu untuk menjaga skor kepatuhan peminjaman.
+          </p>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<a class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold transition-all" href="#peminjaman">
+<svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+<span>Cek Tenggat Pinjaman</span>
+</a>
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-sm hover:shadow transition-all active:scale-[0.98]" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<line x1="12" x2="12" y1="5" y2="19"></line>
+<line x1="5" x2="19" y1="12" y2="12"></line>
+</svg>
+<span>Pinjam Barang Baru</span>
+</button>
+</div>
+</div>
+</section>
+<!-- END: Greeting Banner -->
+<!-- BEGIN: 4 Modern Minimalist Metric Cards -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" data-purpose="metrics-overview">
+<!-- Metric 1: Total Transaksi -->
+<div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-200 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-slate-500 tracking-wide uppercase">Total Transaksi</span>
+<div class="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+<rect height="4" rx="1" ry="1" width="8" x="8" y="2"></rect>
+<path d="M9 12h6"></path>
+<path d="M9 16h6"></path>
+</svg>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-baseline gap-2">
+<span class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">3</span>
+<span class="text-xs text-slate-400 font-medium">peminjaman</span>
+</div>
+<div class="mt-1 flex items-center gap-1.5 text-xs text-slate-500">
+<span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+<span>Aktivitas semester ini</span>
+</div>
+</div>
+</div>
+<!-- Metric 2: Sedang Dipinjam / Aktif -->
+<div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-200 flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-slate-500 tracking-wide uppercase">Pinjaman Aktif</span>
+<div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-baseline gap-2">
+<span class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">2</span>
+<span class="text-xs font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-md border border-rose-200/70">1 Jatuh Tempo</span>
+</div>
+<div class="mt-1 flex items-center gap-1.5 text-xs text-amber-600 font-medium">
+<svg class="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+</svg>
+<span>Segera kembalikan raket</span>
+</div>
+</div>
+</div>
+<!-- Metric 3: Sudah Dikembalikan -->
+<div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-200 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-slate-500 tracking-wide uppercase">Sudah Dikembalikan</span>
+<div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+<polyline points="22 4 12 14.01 9 11.01"></polyline>
+</svg>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-baseline gap-2">
+<span class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">2</span>
+<span class="text-xs text-slate-400 font-medium">unit barang</span>
+</div>
+<div class="mt-1 flex items-center gap-1.5 text-xs text-emerald-700 font-medium">
+<svg class="w-3.5 h-3.5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<polyline points="20 6 9 17 4 12"></polyline>
+</svg>
+<span>Verifikasi sarpras sesuai</span>
+</div>
+</div>
+</div>
+<!-- Metric 4: Skor Kepatuhan Siswa -->
+<div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-200 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-slate-500 tracking-wide uppercase">Skor Kepatuhan</span>
+<div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+</svg>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-baseline gap-2">
+<span class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">96<span class="text-lg text-slate-500 font-bold">%</span></span>
+<span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">Sangat Baik</span>
+</div>
+<div class="mt-2 w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+<div class="bg-gradient-to-r from-indigo-500 to-emerald-500 h-1.5 rounded-full" style="width: 96%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: 4 Modern Minimalist Metric Cards -->
+<!-- BEGIN: Active Borrowings Table Section -->
+<section class="bg-white rounded-2xl border border-slate-200/80 shadow-card overflow-hidden" data-purpose="active-loans-table" id="peminjaman">
+<!-- Section Header -->
+<div class="px-6 py-4.5 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 bg-slate-50/50">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center border border-amber-500/20">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+</div>
+<div>
+<h2 class="text-sm sm:text-base font-bold text-slate-900">Peminjaman Aktif dalam Tanggungan</h2>
+<p class="text-xs text-slate-500">Daftar sarana yang wajib dikembalikan ke ruang Sarpras sesuai tenggat</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-indigo-600 px-3 py-1.5 rounded-lg hover:bg-slate-100/80 transition-colors" href="#">
+<span>Lihat Semua Riwayat (3)</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M5 12h14"></path>
+<path d="m12 5 7 7-7 7"></path>
+</svg>
+</a>
+</div>
+</div>
+<!-- Modern Crisp Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50/80 text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200/60">
+<th class="py-3 px-6" scope="col">Aset &amp; Barang</th>
+<th class="py-3 px-6" scope="col">Jumlah</th>
+<th class="py-3 px-6" scope="col">Tgl Peminjaman</th>
+<th class="py-3 px-6" scope="col">Tenggat Waktu</th>
+<th class="py-3 px-6" scope="col">Status Pengembalian</th>
+<th class="py-3 px-6 text-right" scope="col">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-xs">
+<!-- Row 1: Raket Badminton (Overdue) -->
+<tr class="hover:bg-rose-50/20 transition-colors group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-orange-50 border border-orange-200/70 text-orange-600 flex items-center justify-center shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<path d="M12 3v18"></path>
+<path d="M3 12h18"></path>
+</svg>
+</div>
+<div>
+<span class="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors block text-xs sm:text-sm">Raket Badminton Yonex Carbon</span>
+<span class="font-mono text-[11px] text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200/60 inline-block mt-0.5">OLG-RAKET-002</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6 font-semibold text-slate-800">
+                2 <span class="font-normal text-slate-500">Unit</span>
+</td>
+<td class="py-4 px-6 text-slate-600">
+                24 Sep 2026
+              </td>
+<td class="py-4 px-6">
+<div class="font-bold text-rose-600 flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-rose-500" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<line x1="12" x2="12" y1="8" y2="12"></line>
+<line x1="12" x2="12.01" y1="16" y2="16"></line>
+</svg>
+                  04 Okt 2026
+                </div>
+<div class="text-[11px] text-rose-600/90 font-medium">Lewat tempo 5 hari</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-rose-50 text-rose-700 border border-rose-200">
+<span class="w-1.5 h-1.5 rounded-full bg-rose-600 animate-ping"></span>
+                  Terlambat
+                </span>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors" type="button">
+                    Detail
+                  </button>
+<button class="px-3 py-1.5 text-xs font-semibold text-rose-700 hover:bg-rose-700 hover:text-white bg-rose-50 border border-rose-200/90 rounded-lg transition-all" type="button">
+                    Kembalikan Sekarang
+                  </button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Proyektor Epson EB-X400 (Active) -->
+<tr class="hover:bg-slate-50/60 transition-colors group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200/70 text-indigo-600 flex items-center justify-center shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<rect height="12" rx="2" width="20" x="2" y="6"></rect>
+<circle cx="8" cy="12" r="2"></circle>
+<path d="M16 10h2"></path>
+<path d="M16 14h2"></path>
+</svg>
+</div>
+<div>
+<span class="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors block text-xs sm:text-sm">Proyektor Epson EB-X400</span>
+<span class="font-mono text-[11px] text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200/60 inline-block mt-0.5">ELK-PRO-001</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6 font-semibold text-slate-800">
+                1 <span class="font-normal text-slate-500">Unit</span>
+</td>
+<td class="py-4 px-6 text-slate-600">
+                02 Nov 2026
+              </td>
+<td class="py-4 px-6">
+<div class="font-bold text-slate-800 flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+                  09 Nov 2026
+                </div>
+<div class="text-[11px] text-emerald-600 font-medium">Sisa 3 hari lagi</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  Dipinjam (Aktif)
+                </span>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors" type="button">
+                    Detail
+                  </button>
+<button class="px-3 py-1.5 text-xs font-semibold text-indigo-700 hover:bg-indigo-50 border border-indigo-200 rounded-lg transition-all" type="button">
+                    Perpanjang / Selesai
+                  </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- END: Active Borrowings Table Section -->
+<!-- BEGIN: Refined Catalog Section -->
+<section class="space-y-4 pt-2" data-purpose="available-catalog-section" id="katalog">
+<!-- Search, Header & Category Pills -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-indigo-600"></span>
+<h2 class="text-base sm:text-lg font-bold tracking-tight text-slate-900">Katalog Sarana &amp; Fasilitas Tersedia</h2>
+</div>
+<p class="text-xs text-slate-500 mt-0.5">Pilih inventaris praktik kejuruan atau ekstrakurikuler yang siap dipinjam</p>
+</div>
+<!-- Search Bar with Keyboard Shortcut Pill -->
+<div class="relative w-full sm:w-80">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="11" cy="11" r="8"></circle>
+<line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+</svg>
+</span>
+<input class="w-full pl-9 pr-14 py-2 text-xs bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all shadow-subtle placeholder:text-slate-400" placeholder="Cari proyektor, laptop, kamera..." type="text"/>
+<span class="absolute inset-y-0 right-0 flex items-center pr-2.5 pointer-events-none">
+<kbd class="text-[10px] font-mono font-medium text-slate-400 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded shadow-xs">⌘K</kbd>
+</span>
+</div>
+</div>
+<!-- Category Filter Pills -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+<button class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-white shadow-xs transition-colors shrink-0" type="button">
+          Semua Sarana
+        </button>
+<button class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-colors shrink-0" type="button">
+          IT &amp; Komputer
+        </button>
+<button class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-colors shrink-0" type="button">
+          Audio Visual
+        </button>
+<button class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-colors shrink-0" type="button">
+          Alat Olahraga
+        </button>
+<button class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-colors shrink-0" type="button">
+          Laboratorium IPA
+        </button>
+<button class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-colors shrink-0" type="button">
+          Studio &amp; Seni
+        </button>
+</div>
+<!-- Catalog Cards Grid (PURE VECTOR / NO PHOTO, HIGH-END SAAS STYLE) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-1">
+<!-- Card 1: Proyektor Epson EB-X400 -->
+<article class="group bg-white rounded-2xl border border-slate-200/80 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between overflow-hidden">
+<div class="p-5">
+<!-- Top Badges -->
+<div class="flex items-center justify-between gap-2 mb-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold bg-indigo-50 text-indigo-700 border border-indigo-100">
+                Audio Visual
+              </span>
+<span class="font-mono text-[10px] text-slate-400">ELK-PRO-001</span>
+</div>
+<!-- Sleek Minimalist Graphic Representation (NO PHOTO) -->
+<div class="w-full h-32 rounded-xl bg-gradient-to-b from-indigo-50/50 to-slate-50/80 border border-slate-100 flex flex-col items-center justify-center relative overflow-hidden group-hover:border-indigo-200 transition-colors">
+<div class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200/60 flex items-center justify-center text-indigo-600 group-hover:scale-105 transition-transform">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<rect height="10" rx="2" width="20" x="2" y="6"></rect>
+<circle cx="8" cy="11" r="2.5"></circle>
+<line x1="16" x2="16.01" y1="9" y2="9"></line>
+<line x1="18" x2="18.01" y1="9" y2="9"></line>
+<path d="M5 16v2"></path>
+<path d="M19 16v2"></path>
+</svg>
+</div>
+<div class="mt-2.5 flex items-center gap-1.5 text-[10px] text-slate-500 font-medium">
+<span class="font-mono">HDMI/VGA • 3300 Lumens</span>
+</div>
+</div>
+<!-- Title & Stock -->
+<div class="mt-4">
+<h3 class="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors text-sm">
+                Proyektor Epson EB-X400
+              </h3>
+<p class="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>Tersedia:</span>
+<span class="font-semibold text-slate-900">5 Unit</span>
+</p>
+</div>
+</div>
+<!-- Bottom Card Action Bar -->
+<div class="px-5 py-3 bg-slate-50/60 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200/60">
+              Kondisi Prima
+            </span>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-indigo-600 text-white text-xs font-semibold transition-all" type="button">
+<span>Pinjam</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="m9 18 6-6-6-6"></path>
+</svg>
+</button>
+</div>
+</article>
+<!-- Card 2: Laptop Acer Aspire 5 -->
+<article class="group bg-white rounded-2xl border border-slate-200/80 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between overflow-hidden">
+<div class="p-5">
+<!-- Top Badges -->
+<div class="flex items-center justify-between gap-2 mb-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold bg-sky-50 text-sky-700 border border-sky-100">
+                IT &amp; Komputer
+              </span>
+<span class="font-mono text-[10px] text-slate-400">ELK-LAP-002</span>
+</div>
+<!-- Sleek Minimalist Graphic Representation (NO PHOTO) -->
+<div class="w-full h-32 rounded-xl bg-gradient-to-b from-sky-50/50 to-slate-50/80 border border-slate-100 flex flex-col items-center justify-center relative overflow-hidden group-hover:border-sky-200 transition-colors">
+<div class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200/60 flex items-center justify-center text-sky-600 group-hover:scale-105 transition-transform">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<rect height="12" rx="2" width="18" x="3" y="4"></rect>
+<line x1="2" x2="22" y1="20" y2="20"></line>
+</svg>
+</div>
+<div class="mt-2.5 flex items-center gap-1.5 text-[10px] text-slate-500 font-medium">
+<span class="font-mono">Intel i5 11th • 16GB RAM</span>
+</div>
+</div>
+<!-- Title & Stock -->
+<div class="mt-4">
+<h3 class="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors text-sm">
+                Laptop Acer Aspire 5
+              </h3>
+<p class="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>Tersedia:</span>
+<span class="font-semibold text-slate-900">10 Unit</span>
+</p>
+</div>
+</div>
+<!-- Bottom Card Action Bar -->
+<div class="px-5 py-3 bg-slate-50/60 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200/60">
+              Kondisi Prima
+            </span>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-indigo-600 text-white text-xs font-semibold transition-all" type="button">
+<span>Pinjam</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="m9 18 6-6-6-6"></path>
+</svg>
+</button>
+</div>
+</article>
+<!-- Card 3: Bola Basket Molten Size 7 -->
+<article class="group bg-white rounded-2xl border border-slate-200/80 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between overflow-hidden">
+<div class="p-5">
+<!-- Top Badges -->
+<div class="flex items-center justify-between gap-2 mb-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold bg-amber-50 text-amber-700 border border-amber-100">
+                Alat Olahraga
+              </span>
+<span class="font-mono text-[10px] text-slate-400">OLG-BSK-001</span>
+</div>
+<!-- Sleek Minimalist Graphic Representation (NO PHOTO) -->
+<div class="w-full h-32 rounded-xl bg-gradient-to-b from-amber-50/50 to-slate-50/80 border border-slate-100 flex flex-col items-center justify-center relative overflow-hidden group-hover:border-amber-200 transition-colors">
+<div class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200/60 flex items-center justify-center text-amber-600 group-hover:scale-105 transition-transform">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<path d="M4.93 4.93l4.24 4.24"></path>
+<path d="M14.83 9.17l4.24-4.24"></path>
+<path d="M14.83 14.83l4.24 4.24"></path>
+<path d="M9.17 14.83L4.93 19.07"></path>
+<line x1="12" x2="12" y1="2" y2="22"></line>
+<line x1="2" x2="22" y1="12" y2="12"></line>
+</svg>
+</div>
+<div class="mt-2.5 flex items-center gap-1.5 text-[10px] text-slate-500 font-medium">
+<span class="font-mono">Standar FIBA Resmi</span>
+</div>
+</div>
+<!-- Title & Stock -->
+<div class="mt-4">
+<h3 class="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors text-sm">
+                Bola Basket Molten Size 7
+              </h3>
+<p class="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>Tersedia:</span>
+<span class="font-semibold text-slate-900">12 Unit</span>
+</p>
+</div>
+</div>
+<!-- Bottom Card Action Bar -->
+<div class="px-5 py-3 bg-slate-50/60 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200/60">
+              Kondisi Prima
+            </span>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-indigo-600 text-white text-xs font-semibold transition-all" type="button">
+<span>Pinjam</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="m9 18 6-6-6-6"></path>
+</svg>
+</button>
+</div>
+</article>
+<!-- Card 4: Mikroskop Binokuler Olympus -->
+<article class="group bg-white rounded-2xl border border-slate-200/80 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between overflow-hidden">
+<div class="p-5">
+<!-- Top Badges -->
+<div class="flex items-center justify-between gap-2 mb-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-100">
+                Laboratorium
+              </span>
+<span class="font-mono text-[10px] text-slate-400">LAB-OPT-004</span>
+</div>
+<!-- Sleek Minimalist Graphic Representation (NO PHOTO) -->
+<div class="w-full h-32 rounded-xl bg-gradient-to-b from-emerald-50/50 to-slate-50/80 border border-slate-100 flex flex-col items-center justify-center relative overflow-hidden group-hover:border-emerald-200 transition-colors">
+<div class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200/60 flex items-center justify-center text-emerald-600 group-hover:scale-105 transition-transform">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M6 18h8"></path>
+<path d="M3 22h18"></path>
+<path d="M14 22a7 7 0 1 0 0-14h-1"></path>
+<path d="M9 14h2"></path>
+<path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"></path>
+<path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"></path>
+</svg>
+</div>
+<div class="mt-2.5 flex items-center gap-1.5 text-[10px] text-slate-500 font-medium">
+<span class="font-mono">Perbesaran 1000x Halogen</span>
+</div>
+</div>
+<!-- Title & Stock -->
+<div class="mt-4">
+<h3 class="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors text-sm">
+                Mikroskop Binokuler Olympus
+              </h3>
+<p class="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>Tersedia:</span>
+<span class="font-semibold text-slate-900">4 Unit</span>
+</p>
+</div>
+</div>
+<!-- Bottom Card Action Bar -->
+<div class="px-5 py-3 bg-slate-50/60 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200/60">
+              Kondisi Prima
+            </span>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-indigo-600 text-white text-xs font-semibold transition-all" type="button">
+<span>Pinjam</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="m9 18 6-6-6-6"></path>
+</svg>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- END: Refined Catalog Section -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: Understated Minimalist Footer -->
+<footer class="mt-auto border-t border-slate-200/80 bg-white/70 backdrop-blur-md py-6" data-purpose="page-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+<div class="flex flex-wrap items-center gap-2 text-center md:text-left">
+<span class="font-bold text-slate-800 tracking-tight">SISTEM INVENTARIS SARPRAS</span>
+<span class="text-slate-300">•</span>
+<span>SMK Negeri 1 Solusi Terpadu © 2026</span>
+<span class="text-slate-300 hidden sm:inline">•</span>
+<span class="text-slate-400 hidden sm:inline">Jam Operasional: 07.00 - 16.00 WIB</span>
+</div>
+<div class="flex items-center gap-5">
+<a class="hover:text-slate-900 transition-colors" href="#">SOP Kerusakan &amp; Denda</a>
+<a class="hover:text-slate-900 transition-colors" href="#">Buku Panduan</a>
+<div class="flex items-center gap-1.5 font-medium text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/70">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>Sistem Sinkron</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: Understated Minimalist Footer -->
+<!-- Keyboard shortcut listener for SaaS feeling -->
+<script data-purpose="keyboard-shortcuts">
+    document.addEventListener('keydown', function(e) {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        const searchInput = document.querySelector('input[type="text"]');
+        if (searchInput) {
+          searchInput.focus();
+          searchInput.select();
+        }
+      }
+    });
+  </script>
+</body></html>
